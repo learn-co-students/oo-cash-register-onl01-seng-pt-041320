@@ -9,7 +9,7 @@ class CashRegister
     end
 
     def add_item(title, price, quantity = 1)
-        self.total += (price * quantity)
+        @total += (price * quantity)
         
         counter = 0
         while counter < quantity
@@ -21,7 +21,7 @@ class CashRegister
     end
 
     def apply_discount
-        self.total -= (self.total * (self.discount.to_f / 100))
+        @total -= (@total * (@discount.to_f / 100))
 
         if self.discount > 0
             "After the discount, the total comes to $#{self.total.to_i}."
@@ -35,7 +35,7 @@ class CashRegister
     end
 
     def void_last_transaction
-        self.total -= (self.price * self.quantity)
+        @total -= (@price * @quantity)
         #binding.pry
     end
 end
