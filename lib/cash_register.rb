@@ -20,10 +20,13 @@ class CashRegister
     end
 
     def apply_discount
+        #Convert discount to float
         x = @discount.to_f
+        #Calculate sales discount
         sale = (x/100) * @total
-
+        #Calculate Discounted Price
         sales_price = @total - sale
+        #Convert discounted price to int
         new_total = sales_price.to_i
         
         if discount > 0
