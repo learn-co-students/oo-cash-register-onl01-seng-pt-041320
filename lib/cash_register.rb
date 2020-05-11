@@ -13,19 +13,21 @@ class CashRegister
 
     end
 
-    # def total
-    #     # returns the current total
-    #     @total 
-    # end
+    def total
+        # returns the current total
+        @total 
+    end
 
     def add_item (title, price, quantity = 1)
         # accepts a title and a price and increases the total
         # also accepts an optional quantity
         # doesn't forget about the previous total 
-        self.total += price*quantity
+        @total += price*quantity
         quantity.times do
         items_in_cart << title
         end
+       
+        @last_transaction = @total
     end
 
     def apply_discount
@@ -49,8 +51,7 @@ class CashRegister
         end
 
         def void_last_transaction
-            self.total = self.total - self.last_transaction
-            # binding.pry
-
+           @total -= @last_transaction
+        
         end
 end
