@@ -2,20 +2,22 @@ require 'pry'
 
 class CashRegister
       attr_accessor :total, :discount, :item
-      @@items = []
+      
       @@last_item = @@items.last
 
       def initialize(discount = 0)
         @total = 0
         @discount = discount
+        @items = []
+        @last_item = @items.last
       end
 
       def add_item(title, price, quanity = 1)
-        @@items << title
+        @items << title
         @total += price * quanity
         @total
         #binding.pry
-        @@items
+        @items
       end   
 
       def apply_discount
@@ -29,8 +31,8 @@ class CashRegister
     end
 
     def items
-        #binding.pry
-        @@items
+        binding.pry
+        @items
     end
 
 
